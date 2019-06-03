@@ -1,0 +1,61 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="page-wrap bg-session height-100">
+  <div class="card card-container text-center p-1">
+
+    <div fxLayout="row" fxLayoutAlign="center">
+      <img class="logo-proxime" src="assets/img/session-logo.png" />
+    </div>
+    <h2 class="login-title">SIGN UP TO USE OUR SERVICE</h2>
+
+    <form [formGroup]="signupForm" (ngSubmit)="signup()" class="form-login">
+      <div class="">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{'EMAIL' | translate}}</mat-label>
+          <input  class="input-text"
+                  matInput
+                  name="email"
+                  formControlName="email"
+                  value="">
+        </mat-form-field>
+        <small
+          *ngIf="signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched"
+          class="form-error-msg"> Email is required </small>
+      </div>
+
+      <div class="">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{'PASSWORD' | translate}}</mat-label>
+          <input
+            type="password"
+            name="password"
+            matInput
+            formControlName="password"
+            value="">
+        </mat-form-field>
+        <small
+          *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched"
+          class="form-error-msg"> Password is required </small>
+      </div>
+
+      <div class="">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{'CONFIRM-PASSWORD' | translate}}</mat-label>
+          <input
+            type="password"
+            name="confirmPassword"
+            matInput
+            formControlName="confirmPassword"
+            [(ngModel)]="password">
+        </mat-form-field>
+        <small
+          *ngIf="signupForm.controls['confirmPassword'].hasError('required') && signupForm.controls['confirmPassword'].touched"
+          class="form-error-msg">Confirm password is required.</small>
+      </div>
+      <button class="btn-primary" type="submit">Create a New Account</button>
+    </form>
+
+    <hr>
+
+    <button class="btn-second" type="button" [routerLink]="'login'">Sign in to existing account</button>
+
+  </div><!-- /card-container -->
+</div><!-- /container -->
