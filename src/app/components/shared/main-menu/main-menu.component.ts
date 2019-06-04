@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {AuthService} from '../../../shared/services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-menu',
@@ -15,6 +17,16 @@ export class MainMenuComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  logout() {
+    console.log('salir');
+    this.authService.logOut();
+    this.router.navigate(['session/signin']);
+  }
 
 }

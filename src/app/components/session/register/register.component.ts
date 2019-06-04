@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../shared/services/auth/auth.service';
+import {AppLoaderService} from '../../../shared/services/app-loader/app-loader.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loader: AppLoaderService
   ) {}
 
   ngOnInit() {
@@ -27,15 +29,13 @@ export class RegisterComponent implements OnInit {
   }
 
   signup() {
-    if (!this.signupForm.valid) {
-      return;
-    }
+    this.loader.open();
     this.authService.registerUser(this.signupForm.getRawValue().email, this.signupForm.getRawValue().password)
       .then((res) => {
-        console.log('bien');
+        this.loader.close();
         console.log(res);
       }).catch((err) => {
-        console.log('error');
+        this.loader.close();
         console.log(err);
     });
   }

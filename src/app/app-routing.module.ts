@@ -1,15 +1,44 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/session/login/login.component';
-import { NotfoundpageComponent} from './components/others/notfoundpage/notfoundpage.component';
-import {RegisterComponent} from './components/session/register/register.component';
+import {AuthGuard} from './shared/services/auth/auth.guard';
+import {MainLayoutComponent} from './components/shared/main-layout/main-layout.component';
+import {SessionLayoutComponent} from './components/shared/session-layout/session-layout.component';
+import {NotfoundpageComponent} from './components/others/notfoundpage/notfoundpage.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: '**', component: NotfoundpageComponent}
+  {
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
+  },
+
+  {
+    path: '',
+    component: SessionLayoutComponent,
+    children: [
+      {
+        path: 'session',
+        loadChildren: './components/session/session.module#SessionModule',
+        data: {title: 'Session'}
+      }
+    ]
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'main',
+        loadChildren: './components/main/main.module#MainModule',
+        data: {title: 'Main', breadcrumb: 'MAIN'}
+      }
+    ]
+  },
+  {
+    path: '**',
+    component: NotfoundpageComponent
+  }
 ];
 
 @NgModule({

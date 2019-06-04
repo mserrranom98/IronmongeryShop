@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import 'hammerjs';
-import { TranslateService } from '@ngx-translate/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'IronmongeryShop';
 
   constructor(
