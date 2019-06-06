@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {AuthService} from '../../../shared/services/auth/auth.service';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main-menu',
@@ -20,13 +21,20 @@ export class MainMenuComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public translate: TranslateService,
+  ) {
+    this.translate.use('en');
+  }
 
   logout() {
     console.log('salir');
     this.authService.logOut();
     this.router.navigate(['session/signin']);
+  }
+
+  setLang(language) {
+    this.translate.use(language);
   }
 
 }

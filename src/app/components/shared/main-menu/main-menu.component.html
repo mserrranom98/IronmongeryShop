@@ -20,6 +20,20 @@
         (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <span class="w-100"></span>
+      <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #languageMenu="matMenu">
+        <button mat-menu-item (click)="setLang('en')">
+          <span class="flag-icon flag-icon-us"></span>
+          <span> English</span>
+        </button>
+        <button mat-menu-item (click)="setLang('es')">
+          <span class="flag-icon flag-icon-bo"></span>
+          <span> Spanish</span>
+        </button>
+      </mat-menu>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>

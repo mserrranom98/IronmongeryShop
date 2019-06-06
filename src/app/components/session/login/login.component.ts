@@ -39,4 +39,25 @@ export class LoginComponent implements OnInit {
         this.flashMessage.show(err.message, {cssClass: 'alert-danger', timeout: 10000});
     });
   }
+
+  onClickGoogleLogin() {
+    this.authService.loginGoogle()
+      .then((res) => {
+        this.router.navigate(['/']);
+      }).catch( err => console.log(err.message));
+  }
+
+  onClickFacebookLogin() {
+    this.authService.loginFacebook()
+      .then((res) => {
+        this.router.navigate(['/']);
+      }).catch( err => console.log(err.message));
+  }
+
+  onClickTwitterLogin() {
+    this.authService.loginTwitter()
+      .then((res) => {
+        this.router.navigate(['/']);
+      }).catch (err => console.log(err.message));
+  }
 }

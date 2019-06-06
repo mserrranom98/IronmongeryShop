@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import 'hammerjs';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +11,7 @@ export class AppComponent {
   title = 'IronmongeryShop';
 
   constructor(
-    private translateService: TranslateService
   ) {
-    translateService.setDefaultLang('en');
   }
 
 }
