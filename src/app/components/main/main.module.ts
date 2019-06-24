@@ -5,6 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 import {HomeComponent} from './home/home.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {MaterialModule} from '../../material.module';
+import { ShopsComponent } from './shops/shops.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {MaterialModule} from '../../material.module';
     MaterialModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ShopsComponent
   ]
 })
 export class MainModule { }

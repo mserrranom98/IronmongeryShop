@@ -1,42 +1,81 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+<mat-sidenav #sidenav [mode]="over" [(opened)]="opened" class="bottom-to-top">
+  <div class="logo-menu" fxLayout="column" fxLayoutAlign="center center">
+    <img class="circle" src="../../../../assets/img/session-logo.png" width="70px">
+  </div>
+  <div class="menu">
     <mat-nav-list>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">Shop</a>
-      <a mat-list-item href="#">Product</a>
-      <a mat-list-item (click)="logout()">Logout</a>
+      <div class="button-nav active" routerLink="/main/home">
+        <img class="icon-nav" src="../../../../assets/img/icon-dashboard.svg"/>
+        <p class="text-nav">Dashboard</p>
+      </div>
     </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="w-100"></span>
-      <button mat-icon-button [matMenuTriggerFor]="languageMenu">
-        <mat-icon>language</mat-icon>
-      </button>
-      <mat-menu #languageMenu="matMenu">
-        <button mat-menu-item (click)="setLang('en')">
-          <span class="flag-icon flag-icon-us"></span>
-          <span> English</span>
-        </button>
-        <button mat-menu-item (click)="setLang('es')">
-          <span class="flag-icon flag-icon-bo"></span>
-          <span> Spanish</span>
-        </button>
-      </mat-menu>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-    <ng-content></ng-content>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <mat-nav-list>
+      <div class="button-nav" routerLink="/main/shops">
+        <img class="icon-nav" src="../../../../assets/img/icon-company.svg"/>
+        <p class="text-nav">Shops</p>
+      </div>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <div class="button-nav">
+        <img class="icon-nav" src="../../../../assets/img/icon-company.svg"/>
+        <p class="text-nav">Products</p>
+      </div>
+    </mat-nav-list>
+
+    <mat-nav-list class="button-nav">
+      <img class="icon-nav" src="../../../../assets/img/icon-configuration.svg"/>
+      <p class="text-nav">Setting</p>
+    </mat-nav-list>
+  </div>
+</mat-sidenav>
+
+<mat-sidenav-content>
+  <mat-toolbar class="header-box-shadow">
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow.sm="true" fxShow.gt-sm="false">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-button ngClass.gt-sm="margin-left">
+      IronmongeryShop
+    </button>
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu" fxShow.lt-md="false" fxShow.gt-sm="true">
+      <mat-icon>language</mat-icon>
+      <span class="ml-2">Change Language</span>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" fxShow.lt-md="true" fxShow.gt-sm="false">
+      <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" overlapTrigger="false">
+      <button mat-menu-item>
+        <span class="flag-icon flag-icon-us mr-1"></span>
+        <span>English</span>
+      </button>
+      <button mat-menu-item>
+        <span class="flag-icon flag-icon-es mr-1"></span>
+        <span>Spanish</span>
+      </button>
+    </mat-menu>
+    <mat-icon class="ml-3" title="Logout" (click)="logout()">exit_to_app</mat-icon>
+  </mat-toolbar>
+
+  <div class="container-main float-left">
+
+    <div class="container content-wrapper">
+
+      <div class="row"><!-- START ROW -->
+
+        <div class="col-md-12">
+
+          <router-outlet></router-outlet>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</mat-sidenav-content>

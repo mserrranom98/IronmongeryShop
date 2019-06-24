@@ -25,6 +25,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {AuthGuard} from './shared/services/auth/auth.guard';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, '../assets/i18n/', '.json');
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CustomFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FlexLayoutModule,
     LayoutModule,
     MaterialModule,
     FlashMessagesModule,

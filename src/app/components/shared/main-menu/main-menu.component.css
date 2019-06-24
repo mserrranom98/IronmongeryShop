@@ -1,19 +1,118 @@
-.sidenav-container {
-  height: 100%;
+:root {
+  --color-1: #0E73AD;
+  --color-2: #FFFFFF;
+  --color-3: #CCCCCC;
+  --color-4: #808080;
+  --color-5: #B2009E;
+  --color-6: #F0F0F0;
+  --color-7: #0B4B6F;
+  --color-8: #26AD0E;
+  --color-9: #15580A;
+  --color-10: #E3E3E3;
 }
 
-.sidenav {
-  width: 200px;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
+.container {
+  position: absolute;
   top: 0;
-  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.img-button {
-  width: 32px;
-  height: 32px;
+mat-sidenav {
+  width: 250px;;
+}
+
+.circle {
   border-radius: 50%;
+}
+
+.with-bg {
+  background-color: white;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  max-height: 130px;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px !important;
+  padding-left: 10px !important;
+}
+
+.header-box-shadow {
+  z-index: 1;
+  height: 65px;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.bottom-to-top {
+  background-color: #0E73AD;
+  width: 70px;
+  border: 0px;
+  border-image:
+    linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%
+}
+
+.logo-menu {
+  background-color: white !important;
+  width: 70px;
+  height: 65px;
+  z-index: 3;
+  position: absolute;
+  box-shadow: 0 0 10px black;
+}
+
+.menu {
+  margin-top: 75px;
+}
+
+.button-nav {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding: 10px;
+}
+
+.button-nav:hover{
+  background-color: #0B4B6F;
+}
+
+.icon-nav {
+  width: 30px;
+  height: 30px;
+}
+
+.text-nav {
+  color: var(--color-2);
+  font-size: 9px;
+  margin-top: 5px;
+}
+
+.margin-left {
+  margin-left: 65px;
+}
+
+.container-main {
+  position: relative;
+  padding-top: 70px;
+  padding-left: 70px;
+  width: 100%
+}
+
+.content-wrapper {
+  padding: 15px;
+  width: 100%;
 }
