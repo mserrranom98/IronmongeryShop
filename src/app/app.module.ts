@@ -26,6 +26,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {AuthGuard} from './shared/services/auth/auth.guard';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, '../assets/i18n/', '.json');
@@ -46,6 +47,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
+    AngularFontAwesomeModule,
     LayoutModule,
     MaterialModule,
     FlashMessagesModule,

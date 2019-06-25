@@ -6,7 +6,7 @@
     <mat-nav-list>
       <div class="button-nav active" routerLink="/main/home">
         <img class="icon-nav" src="../../../../assets/img/icon-dashboard.svg"/>
-        <p class="text-nav">Dashboard</p>
+        <p class="text-nav long-text">Dashboard</p>
       </div>
     </mat-nav-list>
 
@@ -60,9 +60,7 @@
     <mat-icon class="ml-3" title="Logout" (click)="logout()">exit_to_app</mat-icon>
   </mat-toolbar>
 
-  <div class="container-main float-left">
-
-    <div class="container content-wrapper">
+    <div ngClass.gt-sm="container content-wrapper">
 
       <div class="row"><!-- START ROW -->
 
@@ -75,7 +73,5 @@
       </div>
 
     </div>
-
-  </div>
 
 </mat-sidenav-content>

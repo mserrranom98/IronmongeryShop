@@ -31,18 +31,6 @@ mat-sidenav {
   border-radius: 50%;
 }
 
-.with-bg {
-  background-color: white;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  max-height: 130px;
-}
-
 .no-shadow {
   box-shadow: none !important;
 }
@@ -96,9 +84,12 @@ mat-sidenav {
 }
 
 .text-nav {
-  color: var(--color-2);
-  font-size: 9px;
+  color: white;
   margin-top: 5px;
+}
+
+.long-text {
+  margin-right: -1px;
 }
 
 .margin-left {
@@ -113,6 +104,6 @@ mat-sidenav {
 }
 
 .content-wrapper {
-  padding: 15px;
-  width: 100%;
+  padding-top: 90px;
+  padding-left: 95px;
 }

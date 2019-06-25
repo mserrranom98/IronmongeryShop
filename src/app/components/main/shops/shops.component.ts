@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DetailComponent} from '../../others/detail/detail.component';
+import {MatBottomSheet} from '@angular/material';
 
 @Component({
   selector: 'app-shops',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
+  }
+
+  openDetail(): void {
+    this.bottomSheet.open(DetailComponent);
   }
 
 }

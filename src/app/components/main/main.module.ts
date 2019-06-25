@@ -6,17 +6,26 @@ import {HomeComponent} from './home/home.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {MaterialModule} from '../../material.module';
 import { ShopsComponent } from './shops/shops.component';
+import {FlexModule} from '@angular/flex-layout';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {DetailComponent} from '../others/detail/detail.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MainRoutingModule,
     TranslateModule,
-    MaterialModule
+    MaterialModule,
+    FlexModule,
+    AngularFontAwesomeModule
   ],
   declarations: [
     HomeComponent,
-    ShopsComponent
+    ShopsComponent,
+    DetailComponent
+  ],
+  entryComponents: [
+    DetailComponent
   ]
 })
 export class MainModule { }
