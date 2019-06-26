@@ -11,99 +11,20 @@
   --color-10: #E3E3E3;
 }
 
-.spacer {
-  flex: 1 1 auto;
+.bg-main {
+  background-color: #CCCCCC;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
-.container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.menu-head {
+  padding: 1rem 1rem 0 1rem;
+  background-color: #CCCCCC;
 }
 
-mat-sidenav {
-  width: 250px;;
+.menu-sub-head {
+  padding: 0 1rem 0 1rem;
+  background-color: #F0F0F0;
 }
 
-.circle {
-  border-radius: 50%;
-}
-
-.no-shadow {
-  box-shadow: none !important;
-}
-
-::ng-deep .mat-expansion-panel-body {
-  padding: 0px !important;
-  padding-left: 10px !important;
-}
-
-.header-box-shadow {
-  z-index: 1;
-  height: 65px;
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-}
-
-.bottom-to-top {
-  background-color: #0E73AD;
-  width: 70px;
-  border: 0px;
-  border-image:
-    linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%
-}
-
-.logo-menu {
-  background-color: white !important;
-  width: 70px;
-  height: 65px;
-  z-index: 3;
-  position: absolute;
-  box-shadow: 0 0 10px black;
-}
-
-.menu {
-  margin-top: 75px;
-}
-
-.button-nav {
-  width: 70px;
-  height: 70px;
-  text-align: center;
-  padding: 10px;
-}
-
-.button-nav:hover{
-  background-color: #0B4B6F;
-}
-
-.icon-nav {
-  width: 30px;
-  height: 30px;
-}
-
-.text-nav {
-  color: white;
-  margin-top: 5px;
-}
-
-.long-text {
-  margin-right: -1px;
-}
-
-.margin-left {
-  margin-left: 65px;
-}
-
-.container-main {
-  position: relative;
-  padding-top: 70px;
-  padding-left: 70px;
-  width: 100%
-}
-
-.content-wrapper {
-  padding-top: 90px;
-  padding-left: 95px;
-}
