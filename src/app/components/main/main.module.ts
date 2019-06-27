@@ -9,6 +9,7 @@ import { ShopsComponent } from './shops/shops.component';
 import {FlexModule} from '@angular/flex-layout';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {DetailComponent} from '../others/detail/detail.component';
+import {AlertModule} from 'ngx-alerts';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {DetailComponent} from '../others/detail/detail.component';
     MainRoutingModule,
     TranslateModule,
     MaterialModule,
+    AlertModule.forRoot({maxMessages: 1, timeout: 4000, position: 'right'}),
     FlexModule,
     AngularFontAwesomeModule
   ],

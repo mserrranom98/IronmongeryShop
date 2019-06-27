@@ -4,6 +4,7 @@ import {AuthService} from '../../../shared/services/auth/auth.service';
 import {AppLoaderService} from '../../../shared/services/app-loader/app-loader.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
+import {AlertService} from 'ngx-alerts';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loader: AppLoaderService,
     private router: Router,
-    private flashMessage: FlashMessagesService
+    private flashMessage: FlashMessagesService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -29,35 +31,51 @@ export class LoginComponent implements OnInit {
   }
 
   signin() {
-    this.loader.open();
-    this.authService.loginEmail(this.signinForm.getRawValue().email, this.signinForm.getRawValue().password)
-      .then((res) => {
+    if (this.validateForm()) {
+      this.loader.open();
+      this.authService.loginEmail(this.signinForm.getRawValue().email, this.signinForm.getRawValue().password)
+        .then((res) => {
+          this.loader.close();
+          this.router.navigate(['/']);
+        }).catch((err) => {
         this.loader.close();
-        this.router.navigate(['/']);
-      }).catch((err) => {
-        this.loader.close();
-        this.flashMessage.show(err.message, {cssClass: 'alert-danger', timeout: 10000});
-    });
+        this.alertService.danger(err.message);
+      });
+    }
   }
 
   onClickGoogleLogin() {
     this.authService.loginGoogle()
       .then((res) => {
         this.router.navigate(['/']);
-      }).catch( err => console.log(err.message));
+      }).catch( err => this.alertService.danger(err.message));
   }
 
   onClickFacebookLogin() {
     this.authService.loginFacebook()
       .then((res) => {
         this.router.navigate(['/']);
-      }).catch( err => console.log(err.message));
+      }).catch( err => this.alertService.danger(err.message));
   }
 
   onClickTwitterLogin() {
     this.authService.loginTwitter()
       .then((res) => {
         this.router.navigate(['/']);
-      }).catch (err => console.log(err.message));
+      }).catch (err => this.alertService.danger(err.message));
+  }
+
+  validateForm(): any {
+    if (this.signinForm.status === 'VALID') {
+      return true;
+    }
+    if (
+      this.signinForm.controls['email'].hasError('required') ||
+      this.signinForm.controls['password'].hasError('required')) {
+      this.alertService.danger('Check that all data is entered');
+    } else {
+      this.alertService.danger('The data entered are not valid');
+    }
+    return false;
   }
 }

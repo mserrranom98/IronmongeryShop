@@ -1,55 +1,39 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="page-wrap height-100 bg-session">
+<div fxLayout="column" fxLayoutAlign="center center" class="height-100 bg-session">
+  <ngx-alerts></ngx-alerts>
   <div class="card card-container text-center p-1">
 
     <div fxLayout="row" fxLayoutAlign="center">
-      <img class="logo-proxime" src="assets/img/session-logo.png" />
+      <img class="logo-proxime" src="assets/img/settings.svg" />
     </div>
     <h2 class="login-title">SIGN IN TO YOUR ACCOUNT</h2>
 
     <form [formGroup]="signinForm" (ngSubmit)="signin()" class="form-login">
-      <div class="">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            name="email"
-            [formControl]="signinForm.controls['email']"
-            value="">
-        </mat-form-field>
-        <small
-          *ngIf="signinForm.controls['email'].hasError('required') && signinForm.controls['email'].touched"
-          class="form-error-msg"> Email is required </small>
-      </div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          name="email"
+          formControlName="email">
+      </mat-form-field>
 
-      <div class="">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Password</mat-label>
-          <input
-            type="password"
-            name="password"
-            matInput
-            [formControl]="signinForm.controls['password']"
-            value="">
-        </mat-form-field>
-        <small
-          *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched"
-          class="form-error-msg"> Password is required </small>
-      </div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          name="password"
+          matInput
+          formControlName="password">
+      </mat-form-field>
 
-      <span class="text-forgot-password"><a [routerLink]="'/sessions/forgot-password'">Forgot Password</a></span>
-      <button class="btn-primary" type="submit" [disabled]="signinForm.invalid">Sign In</button>
+      <span class="text-forgot-password"><a routerLink="/sessions/forgot-password">Forgot Password</a></span>
+      <button class="btn-primary" type="submit">Sign In</button>
     </form>
-    <button class="btn-second" type="button" routerLink="/signup">Create a New Account</button>
-    <div class="row">
-      <div class="col-md-6 mx-auto mt-2">
-        <div class="card">
-          <div class="card-body d-flex justify-content-around">
-            <button class="btn btn-lg btn-facebook" (click)="onClickFacebookLogin()" ><i class="fa fa-facebook"></i></button>
-            <button class="btn btn-lg btn-google" (click)="onClickGoogleLogin()" ><i class="fa fa-google-plus" aria-hidden="true"></i></button>
-            <button class="btn btn-lg btn-twitter" (click)="onClickTwitterLogin()" ><i class="fa fa-twitter"></i></button>
-          </div>
-        </div>
-      </div>
+    <button class="btn-second mb-1" type="button" routerLink="/session/signup">Create a New Account</button>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1%">
+      <button fxFlex="32" class="btn btn-lg btn-facebook" (click)="onClickFacebookLogin()" ><i class="fa fa-facebook"></i></button>
+      <button fxFlex="32" class="btn btn-lg btn-google" (click)="onClickGoogleLogin()" ><i class="fa fa-google-plus" aria-hidden="true"></i></button>
+      <button fxFlex="32" class="btn btn-lg btn-twitter" (click)="onClickTwitterLogin()" ><i class="fa fa-twitter"></i></button>
     </div>
 
   </div><!-- /card-container -->

@@ -23,7 +23,7 @@
         <span>Dashboard</span>
       </a>
 
-      <a mat-list-item fxLayoutAlign="start center" routerLink="/main/shops">
+      <a mat-list-item fxLayoutAlign="start center" (click)="sidenav.close()" routerLink="/main/shops">
         <img class="icon-nav" src="../../../../assets/img/icon-shop.svg"/>
         <span>Shops</span>
       </a>
